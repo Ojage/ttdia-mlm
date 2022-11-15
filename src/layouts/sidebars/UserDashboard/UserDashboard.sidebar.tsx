@@ -95,13 +95,7 @@ const SideBarItem = ({ to, name }: SidebarItemProps) => {
       setBadgeContent(nomba);
       setBadgeVisibility('block');
     }
-    if (bgCheckLocal) {
-      setActivate(true);
-    }
-    if (active) {
-      setBg('inherit');
-      setBgGradient(activeBgGradient);
-    }
+   
   }, []);
 
   return (
