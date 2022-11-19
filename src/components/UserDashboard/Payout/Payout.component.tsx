@@ -13,7 +13,7 @@ import pendingIcon from '../../../assets/images/pending.svg';
 import paidIcon from '../../../assets/images/paid.svg';
 import approvedIcon from '../../../assets/images/approved.svg';
 import rejectedIcon from '../../../assets/images/denied.svg';
-import payoutIcon from '../../../assets/images/payout.svg';
+import payoutIcon from '../../../assets/images/payoutIcon.svg';
 
 function Payout() {
   const [selectedPage, setSelectedPage]= useState('Pending');
