@@ -139,7 +139,8 @@ const SidebarItems = () => {
       height="100vh"
       gap="2.4rem"
     >
-      {nestRoutes.map((item) => (
+      {
+      nestRoutes.map((item) => (
        <Box 
        onClick={()=>setActive(item.name)}
        bg={active==item.name? "blue":""}

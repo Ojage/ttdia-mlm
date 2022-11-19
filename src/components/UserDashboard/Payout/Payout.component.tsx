@@ -18,7 +18,8 @@ import payoutIcon from '../../../assets/images/payout.svg';
 function Payout() {
   const [selectedPage, setSelectedPage]= useState('Pending');
 
-  const [numberofrows, setNumberOfRows] =useState(10)
+  const [numberofrows, setNumberOfRows] =useState(10);
+  const [isvaluechange,setIsValueChange]= useState(30)
   const OPtions = [
     "...",
     'Paid',
@@ -27,7 +28,8 @@ function Payout() {
     'Rejected',
   ];
 
-const Numbers=[10,20,30,40,50,60,70];
+const Numbers=[10,20,30,40,50,60];
+
 //  type event ={
 //   event:React.ChangeEvent<HTMLBodyElement>():void
 //  }
@@ -63,7 +65,7 @@ const Numbers=[10,20,30,40,50,60,70];
            bg={selectedPage==="Pending"?'blue':"navy"}>
            
           <VStack >
-          <Image src={pendingIcon} alt='image' boxSize='40px' mt='10px' objectFit='cover'/>
+          <Image src={pendingIcon} alt='image' boxSize='30px' mt='5px' objectFit='cover'/>
             <Text>Pending</Text>
             <HStack>
               <Text>0</Text>
@@ -83,7 +85,7 @@ const Numbers=[10,20,30,40,50,60,70];
         >
           
           <VStack>
-          <Image src={approvedIcon} alt='image' boxSize='40px' mt='10px' objectFit='cover'/>
+          <Image src={approvedIcon} alt='image' boxSize='30px' mt='5px' objectFit='cover'/>
             <Text>Approved</Text>
             <HStack>
               <Text>0</Text>
@@ -104,7 +106,7 @@ const Numbers=[10,20,30,40,50,60,70];
         >
           
           <VStack >
-          <Image src={paidIcon} alt='image' boxSize='40px' mt='10px' objectFit='cover'/>
+          <Image src={paidIcon} alt='image' boxSize='30px' mt='5px' objectFit='cover'/>
             <Text>Paid</Text>
             <HStack>
               <Text>0</Text>
@@ -123,7 +125,7 @@ const Numbers=[10,20,30,40,50,60,70];
           bg ={selectedPage==="Rejected"?'blue':'navy'}
         >
           <VStack >
-          <Image src={rejectedIcon} alt='image' boxSize='40px' mt='10px' objectFit='cover'/>
+          <Image src={rejectedIcon} alt='image' boxSize='30px' mt='5px' objectFit='cover'/>
             <Text>Rejected</Text>
             <HStack>
               <Text>0</Text>
@@ -153,6 +155,7 @@ const Numbers=[10,20,30,40,50,60,70];
         <Flex>
 
           <HStack flex="1">
+
             <Select
               w="8rem"
               // placeholder={selectedPage}
@@ -162,7 +165,8 @@ const Numbers=[10,20,30,40,50,60,70];
               
                
                {OPtions.map(optionItem=>(
-                <option value={optionItem} onClick={()=>setSelectedPage(optionItem)}  >{optionItem}</option>
+                <option value={optionItem} onClick={()=>setSelectedPage(optionItem) } 
+                onChange={()=>setSelectedPage(optionItem)}  >{optionItem}</option>
               
               
               ))}
@@ -182,7 +186,7 @@ const Numbers=[10,20,30,40,50,60,70];
         </Flex>
           {/* THIS IS A COMPONENT  */}
         <Box
-         height="67vh"
+         height="65vh"
            
          mt="4px"
          mb='15px'
@@ -205,17 +209,17 @@ const Numbers=[10,20,30,40,50,60,70];
             w="14.5rem"
             h="2rem"
             placeholder='Numbers per page 10'
-            onChange={()=>setNumberOfRows(10)}
+            
             // value={}
+            // onClick={()=>setIsValueChange(item)} 
           >
-           {Numbers.map(item=>(
-            <option value={numberofrows} >{item}</option>
-           ))}
-            {/* <option value="5" onChange={()=>setNumberOfRows(5)}>5</option>
-            <option value="10"onChange={()=>setNumberOfRows(10)}>10</option>
-            <option value="15" onChange={()=>setNumberOfRows(15)}>15</option>
-            <option value="15" onClick={()=>setNumberOfRows(20)}>20</option>
-            <option value="20" onClick={()=>setNumberOfRows(25)}>25</option> */}
+           {Numbers.map(item=>{
+            
+            return (
+              <option value={item}  onClick={()=>setIsValueChange(item)} onChange={()=>setNumberOfRows(isvaluechange)} >{item}</option>
+             )
+           })}
+            
           </Select>
             {/* <Button h="2rem">Previous{10}</Button> */}
             <ChevronLeftIcon h='2rem' w='3rem'/>
