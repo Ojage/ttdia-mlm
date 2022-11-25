@@ -5,7 +5,7 @@ import SignUp from '../pages/auth/Signup.page';
 import Landing from '../pages/Landing.page';
 import { ROUTE, USER_DASHBOARD_ROUTE } from '.';
 import Deposit from '../components/UserDashboard/Deposit/Deposit.component';
-import ECommerce from '../components/UserDashboard/ECommerce/ECommerce.component';
+import ECommerce from '../components/UserDashboard/ECommerce/ECommerce';
 import EWallet from '../components/UserDashboard/EWallet/EWallet.component';
 import Genealogy from '../components/UserDashboard/Genealogy/Genealogy.component';
 import Support from '../components/UserDashboard/Support/Support.component';

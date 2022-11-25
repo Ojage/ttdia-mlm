@@ -16,7 +16,13 @@ import { ROUTE, USER_DASHBOARD_ROUTE } from '../../../routes';
 
 import { Badger } from './Badger';
 import { isLight, mode } from '@chakra-ui/theme-tools';
-// import bell from '../../../assets/images/bell.svg';
+import dashboard from '../../../assets/images/dashboard.svg';
+import ECommerceSideNavBar from '../../../components/UserDashboard/ECommerce/ECommerce';
+import dropdownIcon from '../../../assets/images/ecom_dropdown_icons.svg'
+import ECommerce from '../../../components/UserDashboard/ECommerce/ECommerce';
+import { EcommerceSubNavBar } from './EcommerceSubNavBar';
+//  
+
 
 type PanelTextProps = { text: string };
 const PanelText = ({ text }: PanelTextProps) => (
@@ -40,18 +46,30 @@ const SidebarItemContent = ({
 	badgeVisibility,
 }: SidebarItemContentProps) => {
 	const iconAlt = `${text}_icon`;
+  const [isdisplay, setIsDisplayed] =useState(false)
 	return (
-		<HStack
-			minWidth="13vw"
-			minHeight="45px"
-			pl="2rem"
-			justifyContent="left">
-			<Image h="19.87px" w="19.87px" src={icon} alt={iconAlt} />
-			<Text fontWeight={500} fontSize="16px">
-				{text}
-			</Text>
-			<ItemBadge nomba={badgeContent} disp={badgeVisibility} />
-		</HStack>
+		<>
+      <VStack>
+            <HStack
+            minWidth="13vw"
+            minHeight="45px"
+            pl="2rem"
+            justifyContent="left">
+            <Image h="19.87px" w="19.87px" src={icon} alt={iconAlt} />
+            <Text fontWeight={500} fontSize="16px" onClick={()=>setIsDisplayed(!isdisplay)}>
+              {text}
+              
+            </Text>
+            <ItemBadge nomba={badgeContent} disp={badgeVisibility} />
+          </HStack>
+         {
+         (text==="ECommerce"&&isdisplay)
+         &&
+          <EcommerceSubNavBar/>
+         }
+        
+      </VStack>
+    </>
 	);
 };
 
@@ -63,7 +81,7 @@ type SidebarItemProps = {
 };
 
 
-const SideBarItem = ({ to, name }: SidebarItemProps) => {
+const SideBarItem = ({ to, name ,icon}: SidebarItemProps) => {
   const [active, setActive] = useState('');
   const [activate, setActivate] = useState(false);
   const [bg, setBg] = useState('darken');
@@ -81,11 +99,7 @@ const SideBarItem = ({ to, name }: SidebarItemProps) => {
       setBadgeContent(nomba);
       setBadgeVisibility('block');
     }
-<<<<<<< HEAD
-   
-=======
-    
->>>>>>> 072b84d56ae34225023dbbed19c1d0989091c310
+
   }, []);
 
   return (
@@ -102,7 +116,7 @@ const SideBarItem = ({ to, name }: SidebarItemProps) => {
     >
       <SidebarItemContent
         text={name}
-        icon={dashboard}
+        icon={icon}
         badgeContent={badgeContent}
         badgeVisibility={badgeVisibility}
 
@@ -118,6 +132,7 @@ const SidebarItems = () => {
   return (
     <VStack
       height="100vh"
+      w='30vw'
       gap="2.4rem"
     >
       {
@@ -128,9 +143,11 @@ const SidebarItems = () => {
        bg="transparent"
        >
            <SideBarItem
-          to={item.path}
-          name={item.name}
-        />
+           
+            to={item.path}
+            name={item.name}
+             selected={false} 
+             icon={dashboard}        />
 
        </Box>
       ))}
