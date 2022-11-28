@@ -1,20 +1,20 @@
 import { Link as RouteLink } from 'react-router-dom';
 import { SetStateAction, useEffect, useState } from 'react';
 import {
-	Box,
-	Image,
-	Text,
-	Stack,
-	HStack,
-	Center,
-	Flex,
-	VStack,
-	useBoolean,
+  Box,
+  Image,
+  Text,
+  Stack,
+  HStack,
+  Center,
+  Flex,
+  VStack,
+  useBoolean,
 } from '@chakra-ui/react';
 import { nestRoutes } from '../../../routes/routes';
-import { ROUTE, USER_DASHBOARD_ROUTE } from '../../../routes';
-
+import { IN_DASHBOARD_ROUTE, ROUTE, USER_DASHBOARD_ROUTE } from '../../../routes';
 import { Badger } from './Badger';
+<<<<<<< HEAD
 import { isLight, mode } from '@chakra-ui/theme-tools';
 import dashboard from '../../../assets/images/dashboard.svg';
 import ECommerceSideNavBar from '../../../components/UserDashboard/ECommerce/ECommerce';
@@ -23,12 +23,14 @@ import ECommerce from '../../../components/UserDashboard/ECommerce/ECommerce';
 import { EcommerceSubNavBar } from './EcommerceSubNavBar';
 //  
 
+=======
+>>>>>>> feat/as_a_user_i_should_see_the_dashboard
 
 type PanelTextProps = { text: string };
 const PanelText = ({ text }: PanelTextProps) => (
-	<Text fontWeight={400} fontSize="15px">
-		{text}
-	</Text>
+  <Text fontWeight={400} fontSize="15px">
+    {text}
+  </Text>
 );
 
 const ItemBadge = Badger();
@@ -40,51 +42,75 @@ type SidebarItemContentProps = {
 	badgeContent: number;
 };
 const SidebarItemContent = ({
-	text,
-	icon,
-	badgeContent,
-	badgeVisibility,
+  text,
+  icon,
+  badgeContent,
+  badgeVisibility,
 }: SidebarItemContentProps) => {
-	const iconAlt = `${text}_icon`;
-  const [isdisplay, setIsDisplayed] =useState(false)
-	return (
-		<>
-      <VStack>
-            <HStack
-            minWidth="13vw"
-            minHeight="45px"
-            pl="2rem"
-            justifyContent="left">
-            <Image h="19.87px" w="19.87px" src={icon} alt={iconAlt} />
-            <Text fontWeight={500} fontSize="16px" onClick={()=>setIsDisplayed(!isdisplay)}>
-              {text}
+<<<<<<< HEAD
+	// const iconAlt = `${text}_icon`;
+  // const [isdisplay, setIsDisplayed] =useState(false)
+ return (
+	 	<>
+  {/* //     <VStack>
+  //           <HStack
+  //           minWidth="13vw"
+  //           minHeight="45px"
+  //           pl="2rem"
+  //           justifyContent="left">
+  //           <Image h="19.87px" w="19.87px" src={icon} alt={iconAlt} />
+  //           <Text fontWeight={500} fontSize="16px" onClick={()=>setIsDisplayed(!isdisplay)}>
+  //             {text}
               
-            </Text>
-            <ItemBadge nomba={badgeContent} disp={badgeVisibility} />
-          </HStack>
-         {
-         (text==="ECommerce"&&isdisplay)
-         &&
-          <EcommerceSubNavBar/>
-         }
+  //           </Text>
+  //           <ItemBadge nomba={badgeContent} disp={badgeVisibility} />
+  //         </HStack>
+  //        {
+  //        (text==="ECommerce"&&isdisplay)
+  //        &&
+  //         <EcommerceSubNavBar/>
+  //        }
         
-      </VStack>
+  //     </VStack> */}
     </>
 	);
+=======
+  const iconAlt = `${text}_icon`;
+  return (
+    <HStack
+      minWidth="13vw"
+      minHeight="45px"
+      pl="2rem"
+      justifyContent="left"
+    >
+      <Image h="19.87px" w="19.87px" src={icon} alt={iconAlt} />
+      <Text fontWeight={500} fontSize="16px">
+        {text}
+      </Text>
+      <ItemBadge nomba={badgeContent} disp={badgeVisibility} />
+    </HStack>
+  );
+>>>>>>> feat/as_a_user_i_should_see_the_dashboard
 };
 
 type SidebarItemProps = {
-	to: USER_DASHBOARD_ROUTE | ROUTE;
+	to: USER_DASHBOARD_ROUTE | ROUTE | IN_DASHBOARD_ROUTE;
 	name: string;
-  selected: boolean,
-  icon: any,
+	selected: boolean;
+	icon: any;
 };
 
 
+<<<<<<< HEAD
 const SideBarItem = ({ to, name ,icon}: SidebarItemProps) => {
+=======
+const SideBarItem = ({ to,
+  name,
+  selected,
+  icon, }: SidebarItemProps) => {
+>>>>>>> feat/as_a_user_i_should_see_the_dashboard
   const [active, setActive] = useState('');
-  const [activate, setActivate] = useState(false);
-  const [bg, setBg] = useState('darken');
+  
   
 
   const [badgeVisibility, setBadgeVisibility] = useState('none');
@@ -119,7 +145,6 @@ const SideBarItem = ({ to, name ,icon}: SidebarItemProps) => {
         icon={icon}
         badgeContent={badgeContent}
         badgeVisibility={badgeVisibility}
-
       />
     </Box>
   );
@@ -132,22 +157,34 @@ const SidebarItems = () => {
   return (
     <VStack
       height="100vh"
+<<<<<<< HEAD
       w='30vw'
       gap="2.4rem"
+=======
+      padding="0px 20px 0px 0px" gap="20px" alignItems="flex-start"
+>>>>>>> feat/as_a_user_i_should_see_the_dashboard
     >
       {
       nestRoutes.map((item) => (
        <Box 
+       borderRadius="12.54px"
        onClick={()=>setActive(item.name)}
        bgGradient= {active==item.name? 'linear(-273.78deg,darken 2.4%, danger 27.63%, primary 102.85%)': ''}
-       bg="transparent"
        >
            <SideBarItem
+<<<<<<< HEAD
            
             to={item.path}
             name={item.name}
              selected={false} 
              icon={dashboard}        />
+=======
+          icon={item.icon}
+          selected={item.selected}
+          to={item.path}
+          name={item.name}
+        />
+>>>>>>> feat/as_a_user_i_should_see_the_dashboard
 
        </Box>
       ))}
@@ -160,17 +197,20 @@ const SidebarItems = () => {
  * @returns The Dashboard Sidebar
  */
 const DashboardSidebar = () => (
+  <Box
+    position="fixed"
+    top="6rem"
+    className="DashboardSidebar"
+    w="25vh"
+    h="100vh"
+    overflow="hidden"
+  >
+    <VStack gap="3rem">
+      <PanelText text="Member CP" />
 
-	<div className="DashboardSidebar">
-		<Box w="25vh" h="100vh" overflow="hidden">
-			<VStack gap="3rem">
-				<PanelText text="Member CP" />
-
-				<SidebarItems />
-			</VStack>
-		</Box>
-	</div>
-
+      <SidebarItems />
+    </VStack>
+  </Box>
 );
 
 export default DashboardSidebar;

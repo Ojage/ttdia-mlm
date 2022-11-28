@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 
-function Referral() {
+function ECommerce() {
   return (
     <Box
       marginTop="1rem"
@@ -10,9 +10,9 @@ function Referral() {
       h="40vh"
       bg="primary"
     >
-      Referral HERE
+      ECommerce HERE
     </Box>
   );
 }
 
-export default Referral;
+export default ECommerce;
