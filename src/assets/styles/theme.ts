@@ -1,6 +1,7 @@
 import { extendTheme } from '@chakra-ui/react';
 import { mode, StyleFunctionProps } from '@chakra-ui/theme-tools';
 import { ButtonStyles as Button } from './components/buttonStyles';
+import { BoxStyles as Box } from './components/boxStyles';
 import { BodyStyles as Styles } from './components/bodyStyles';
 
 /* Pallete 1 */
@@ -24,6 +25,13 @@ export const myNewTheme = extendTheme({
       body: {
         bg: background,
       },
+      // styles for the `a`
+      a: {
+        color: 'blue.500',
+        _hover: {
+          textDecoration: 'underline',
+        },
+      },
     },
   },
   fonts: {
@@ -43,6 +51,7 @@ export const myNewTheme = extendTheme({
 
   components: {
     Button,
+    Box,
     Styles,
   },
 });
