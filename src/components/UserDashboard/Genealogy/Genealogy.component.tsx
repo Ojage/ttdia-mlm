@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/react';
+import { Box,Button } from '@chakra-ui/react';
 
 function Genealogy() {
   return (
@@ -11,6 +11,7 @@ function Genealogy() {
       bg="primary"
     >
       Genealogy HERE
+      <Button variant="primary" >Boom Genealogy!</Button>
     </Box>
   );
 }
