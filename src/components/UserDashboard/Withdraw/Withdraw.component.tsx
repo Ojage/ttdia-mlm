@@ -6,7 +6,7 @@ function Withdraw() {
 		<Box
 			variant="rounded"
 			marginTop="6rem"
-			marginLeft="12rem"
+			marginLeft="14rem"
 			border="1px solid highlight">
 			Withdraw here!
 		</Box>
