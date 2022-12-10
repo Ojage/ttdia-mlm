@@ -1,16 +1,50 @@
-import { Image, Heading, Text } from '@chakra-ui/react';
-import Box from '../../../components/common/Box';
+import {
+	Formik,
+	FormikHelpers,
+	FormikProps,
+	Form,
+	Field,
+	FieldProps,
+} from 'formik';
+import * as React from 'react';
+import { Container, Button,VStack, Heading, Text } from '@chakra-ui/react';
 
-function Withdraw() {
-	return (
-		<Box
-			variant="rounded"
-			marginTop="6rem"
-			marginLeft="14rem"
-			border="1px solid highlight">
-			Withdraw here!
-		</Box>
-	);
+interface MyFormValues {
+	firstName: string;
 }
+
+import Card from '../../common/Card';
+
+const Withdraw: React.FC<{}> = () => {
+	const initialValues: MyFormValues = { firstName: '' };
+
+	return (
+		<Container textAlign="center" p={0} mt="7rem" ml="21.5rem">
+			<Text>Place your withdrawal sharp-sharp</Text>
+			<Card>
+			<Formik
+				initialValues={initialValues}
+				onSubmit={(values, actions) => {
+					console.log({ values, actions });
+					alert(JSON.stringify(values, null, 2));
+					actions.setSubmitting(false);
+				}}>
+				<Form>
+					<VStack>
+					<label htmlFor="Amount">Amount</label>
+					<Field
+						id="Amount"
+						name="Amount"
+						placeholder="Enter Amount"
+					/>
+					<Button variant="primaryOutline" type="submit">Withdraw Now</Button>
+					</VStack>
+				</Form>
+			</Formik>
+			</Card>
+			
+		</Container>
+	);
+};
 
 export default Withdraw;
