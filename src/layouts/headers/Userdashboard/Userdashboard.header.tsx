@@ -64,7 +64,7 @@ const DashboardHeader = () => {
           alignItems="center"
           spacing="13rem"
         >
-          <WelcomeText text={`${greeting()} Nneka`} />
+          <WelcomeText text={`${greeting()}, Nneka`} />
         </HStack>
         <Flex
           alignItems="center"
