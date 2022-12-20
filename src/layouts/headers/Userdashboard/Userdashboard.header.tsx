@@ -81,12 +81,6 @@ const DashboardHeader = () => {
           spacing="13rem"
         >
           <WelcomeText text={`${greeting()}, Nneka`} />
-          {/* <span>
-            {active}
-            {'<-'}
-            {' '}
-
-          </span> */}
         </HStack>
         <Flex
           alignItems="center"
