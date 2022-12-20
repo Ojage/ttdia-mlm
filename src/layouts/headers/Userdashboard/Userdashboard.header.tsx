@@ -7,8 +7,8 @@ import {
   Link,
   useColorMode,
 } from '@chakra-ui/react';
-import { useAppSelector } from '../../../app/hooks';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { useAppSelector } from '../../../app/hooks';
 import bell from '../../../assets/images/bell.svg';
 import avatarWithBackdrop from '../../../assets/images/avatarWithBackdrop.svg';
 import { greeting } from '../../../app/functions';
@@ -35,13 +35,29 @@ const UserMix = ({ id, imgsrc }: UserMixProps) => (
     />
   </HStack>
 );
+
 const DashboardHeader = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   const expanded: boolean = useAppSelector(
-		(state: { mainSidebar: { value: boolean } }) =>
-			state.mainSidebar.value
-	);
+    (state: { mainSidebar: { value: boolean } }) => state.mainSidebar.value,
+  );
+  const active = useAppSelector(
+    (state: any) => state.mainSidebar.activeItem,
+  );
 
+  const isSupport = active === 'Support';
+  let w: string;
+  if (isSupport) {
+    if (expanded) {
+      w = '80%';
+    } else {
+      w = '57%';
+    }
+  } else if (expanded) {
+    w = '80%';
+  } else {
+    w = '89%';
+  }
   return (
     <Box
       variant="nav"
@@ -52,7 +68,7 @@ const DashboardHeader = () => {
       pb=".5rem"
       top={0}
       right={0}
-      w={expanded ? "80%" : "89%"}
+      w={w}
       pl="3.5"
       minH="98px"
       overflow="hidden"
@@ -64,7 +80,13 @@ const DashboardHeader = () => {
           alignItems="center"
           spacing="13rem"
         >
-          <WelcomeText text={`${greeting()} Nneka`} />
+          <WelcomeText text={`${greeting()}, Nneka`} />
+          {/* <span>
+            {active}
+            {'<-'}
+            {' '}
+
+          </span> */}
         </HStack>
         <Flex
           alignItems="center"

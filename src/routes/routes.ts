@@ -1,4 +1,3 @@
-
 // Icons import
 import { MdPayments, MdDashboard, MdSupportAgent } from 'react-icons/md';
 import { RiLuggageDepositFill } from 'react-icons/ri';
@@ -25,8 +24,6 @@ import Portfolio from '../components/UserDashboard/Dashboard/Portfolio/Portfolio
 import External from '../components/UserDashboard/Dashboard/External/External.component';
 import Activity from '../components/UserDashboard/Dashboard/Activity/Activity.component';
 import News from '../components/UserDashboard/Dashboard/News/News.component';
-
-
 
 const routes: IRoute[] = [
   {
