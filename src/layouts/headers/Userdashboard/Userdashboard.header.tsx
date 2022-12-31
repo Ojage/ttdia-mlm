@@ -49,7 +49,7 @@ const DashboardHeader = () => {
   let w: string;
   if (isSupport) {
     if (expanded) {
-      w = '80%';
+      w = '50%';
     } else {
       w = '57%';
     }
